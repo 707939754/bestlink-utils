@@ -1,0 +1,38 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:vue/vue3-recommended",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "parser": "@typescript-eslint/parser",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "vue",
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "generator-star-spacing": "off",
+    "no-const-assign": 2,
+    "no-extra-semi": 2,
+    "no-mixed-spaces-and-tabs": [
+      2,
+      false
+    ],
+    "no-var": 1,
+    "quotes": [
+      1,
+      "single"
+    ],
+    "semi": [
+      2,
+      "always"
+    ]
+  }
+}
