@@ -1,5 +1,6 @@
-import { PortalSvgData, PortalSvgOptions } from './types';
+import {PortalSvgData, PortalSvgOptions} from './types';
 import Block from './brush/block';
+import {append, attr, create} from 'tiny-svg';
 
 /**
  * 二级门户引擎
@@ -24,12 +25,10 @@ export default class PortalSvg {
 	 * @param width
 	 */
 	createSvgContainer(height: string, width: string) {
-		const svgNs = 'http://www.w3.org/2000/svg';
-		this.svgContainer = document.createElementNS(svgNs, 'svg');
-		this.svgContainer.setAttribute('xmlns', svgNs);
-		this.svgContainer.setAttribute('height', height);
-		this.svgContainer.setAttribute('width', width);
-		this.mainContainer.appendChild(this.svgContainer);
+		this.svgContainer = create('svg');
+		attr(this.svgContainer, 'height', height);
+		attr(this.svgContainer, 'width', width);
+		append(this.mainContainer, this.svgContainer);
 	}
 
 	/**
@@ -37,6 +36,6 @@ export default class PortalSvg {
 	 */
 	createCarousel() {
 		const block = new Block({ x: 0, y: 0, height: 100, width: 100 });
-		this.svgContainer.appendChild(block.container);
+		append(this.svgContainer, block.block);
 	}
 }

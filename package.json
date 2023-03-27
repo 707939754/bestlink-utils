@@ -10,7 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "lodash": "4.17.21"
+    "lodash": "4.17.21",
+    "tiny-svg": "3.0.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.56.0",

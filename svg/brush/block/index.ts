@@ -1,11 +1,12 @@
-import { BlockData } from '../../types/block';
+import {BlockData} from '../../types/block';
+import {attr, create} from 'tiny-svg';
 
 /**
  * 绘制svg块
  */
 export default class Block {
 	private data: BlockData;
-	private block: HTMLElement;
+	public block: SVGElement;
 
 	constructor(data: BlockData) {
 		this.data = data;
@@ -18,13 +19,9 @@ export default class Block {
 	 * 绘制
 	 */
 	draw() {
-		this.block = document.createElement('rect');
-		this.block.setAttribute('width', this.data.width + '');
-		this.block.setAttribute('height', this.data.height + '');
-		console.log(this.block, 'block');
-	}
-
-	get container() {
-		return this.block;
+		this.block = create('rect');
+		attr(this.block, 'width', this.data.width);
+		attr(this.block, 'height', this.data.height);
+		attr(this.block, 'fill', '#ffffff');
 	}
 }
