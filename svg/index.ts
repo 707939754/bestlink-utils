@@ -35,7 +35,7 @@ export default class PortalSvg {
 	 * 创建轮播图块
 	 */
 	createCarousel() {
-		const block = new Block({ x: 0, y: 0, height: 100, width: 100 });
+		const block = new Block({ x: 200, y: 0, height: 100, width: 100 });
 		append(this.svgContainer, block.block);
 	}
 }
