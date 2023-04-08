@@ -36,6 +36,6 @@ export default class PortalSvg {
 	 */
 	createCarousel() {
 		const block = new Block({ x: 200, y: 0, height: 100, width: 100 });
-		append(this.svgContainer, block.block);
+		append(this.svgContainer, block.container);
 	}
 }
