@@ -1,12 +1,13 @@
-import {BlockData} from '../../types/block';
-import {attr, create} from 'tiny-svg';
+import { BlockData } from '../../types/block';
+import { append, attr, create } from 'tiny-svg';
 
 /**
  * 绘制svg块
  */
 export default class Block {
-	private data: BlockData; // 设计数据
+	public container: SVGElement;
 	public block: SVGElement; // svg容器
+	private data: BlockData; // 设计数据
 
 	constructor(data: BlockData) {
 		this.data = data;
@@ -19,12 +20,14 @@ export default class Block {
 	 * 绘制
 	 */
 	draw() {
+		this.container = create('g');
 		this.block = create('rect');
 		attr(this.block, 'width', this.data.width);
 		attr(this.block, 'height', this.data.height);
 		attr(this.block, 'x', this.data.x);
 		attr(this.block, 'y', this.data.y);
 		attr(this.block, 'fill', '#ffffff');
+		append(this.container, this.block);
 		// 	增加监听器
 		this.block.addEventListener('click', (ev: MouseEvent) => this.appendBorder(ev));
 	}
